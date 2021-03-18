@@ -1,17 +1,45 @@
 import mongoose from 'mongoose'
+// making mongo db connection
+export const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+    })
 
-const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true
-        })
-        console.log(`MongoDB Connected: ${conn.connection.host} `.cyan.underline)
-    } catch (error) {
-        console.log(`Error: ${error.message}`.red.underline.bold)
-        process.exit(1)
-    }
+    console.log(`MongoDB Connected: ${conn.connection.host}`)
+  } catch (error) {
+    console.error(`Error: ${error.message}`)
+    process.exit(1)
+    
+  }
 }
+// making user schema
+const userSchema = mongoose.Schema({
+  name:{
+    type: String,
+    required: true
+  },
+  surName: {
+    type: String,
+    required: true
+  },
+  birthDay:{
+    type: String,
+    required: true
+  },
+  phoneNo: {
+    type: String,
+    required: true,
+  
+  },
+  address: {
+    type: String,
+    required: true
+  }
+})
 
-export default connectDB
+export const User =  mongoose.model('Users', userSchema)
+
+//export default connectDB
