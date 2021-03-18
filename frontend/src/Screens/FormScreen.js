@@ -24,7 +24,7 @@ const FormScreen = ({ location, history }) => {
   //using use useEffect and pushing it trough history
   useEffect(() => {
     if (userInfo) {
-      history.push('/form')
+      history.push('/')
     }
   }, [history, userInfo])
 

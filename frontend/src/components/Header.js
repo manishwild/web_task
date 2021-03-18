@@ -10,7 +10,7 @@ const Header = () => {
   <Navbar.Brand >Home</Navbar.Brand>
   </LinkContainer>
   <LinkContainer to='/form'>
-  <Navbar.Brand >Saveform</Navbar.Brand>
+  <Navbar.Brand >SavedData</Navbar.Brand>
   </LinkContainer>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">

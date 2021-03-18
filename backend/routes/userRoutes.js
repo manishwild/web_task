@@ -1,5 +1,4 @@
 import express from 'express'
-import { format } from 'path';
 import { getUsers, saveUser } from '../controllers/userControllers.js'
 import {User} from '../config/db.js'
 
@@ -10,6 +9,6 @@ const router = express.Router()
 //   const users = await User.find({})
 //   res.json(users)
 // });
-router.route('/').get(getUsers).post(saveUser)
-
+router.route('/').post(saveUser)
+router.route('/form').get(getUsers)
 export default router
